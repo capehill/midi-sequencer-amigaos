@@ -926,7 +926,8 @@ void KontrolleEinstellungsfenster(void) {
 	if (schliessen) {
 		STRPTR str = NULL;
 		IIntuition->GetAttr(GETFILE_FullFile, (Object *)setgad[GAD_PHONOLITHPROJ], (uint32 *)&str);
-		strncpy(lied.phonolithprojekt, str, 1024);
+
+		if (str) snprintf(lied.phonolithprojekt, sizeof(lied.phonolithprojekt), "%s", str);
 
 		ErneuereLinks();
 		HoleFensterObjpos(setfensterobj, SET);
