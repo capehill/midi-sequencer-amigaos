@@ -38,21 +38,23 @@
 #include "Projekt.h"
 #include "Requester.h"
 
-
-#define GAD_UNITSLIST 0
-#define GAD_UNITNAME 1
-#define GAD_UNITNEU 2
-#define GAD_UNITDEL 3
-#define GAD_UNITPORT 4
-#define GAD_UNITSENDEN 5
-#define GAD_ALLESENDEN 6
-#define GAD_MSGLIST 7
-#define GAD_MSGNAME 8
-#define GAD_MSGDEL 9
-#define GAD_MSGSENDEN 10
-#define GAD_MSGLADEN 11
-#define GAD_MSGSPEICHERN 12
-#define GAD_MSGREC 13
+enum EGadget {
+	GAD_UNITSLIST = 0,
+	GAD_UNITNAME,
+	GAD_UNITNEU,
+	GAD_UNITDEL,
+	GAD_UNITPORT,
+	GAD_UNITSENDEN,
+	GAD_ALLESENDEN,
+	GAD_MSGLIST,
+	GAD_MSGNAME,
+	GAD_MSGDEL,
+	GAD_MSGSENDEN,
+	GAD_MSGLADEN,
+	GAD_MSGSPEICHERN,
+	GAD_MSGREC,
+	GAD_LAST
+};
 
 extern struct CamdIFace *ICamd;
 
@@ -62,7 +64,7 @@ extern struct FENSTERPOS fenp[];
 
 struct Window *sexfenster = NULL;
 Object *sexfensterobj = NULL;
-struct Gadget *sexgad[12];
+struct Gadget *sexgad[GAD_LAST];
 struct List sexportlist = {NULL};
 
 struct ColumnInfo msgcolinfo[] = {{65, "", 0}, {35, "", 0}, {-1, NULL, 0}};
